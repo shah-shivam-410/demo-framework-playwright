@@ -13,20 +13,20 @@ export class HomePage {
     }
 
     async navigateToRegister() { 
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", {waitUntil: 'load', timeout: 60_000});
+        await this.page.goto(process.env.BASE_URL_OPENCART, {waitUntil: 'load', timeout: 60_000});
         // await expect(this.homePageLocators.content).toHaveText("Featured")
         await this.homePageLocators.myAccountLink.click();
         await this.homePageLocators.registerLink.click();
     }
 
     async navigateToLogin() {
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", { waitUntil: 'load', timeout: 60_000 });
+        await this.page.goto(process.env.BASE_URL_OPENCART, { waitUntil: 'load', timeout: 60_000 });
         await this.homePageLocators.myAccountLink.click();
         await this.homePageLocators.loginLink.click();
     }
 
     async validateCurrencies() {
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", { waitUntil: 'load', timeout: 60_000 });
+        await this.page.goto(process.env.BASE_URL_OPENCART, { waitUntil: 'load', timeout: 60_000 });
         await this.homePageLocators.currencyDropdown.click();
         const currList = await this.homePageLocators.currencyDropdownOptions.elementHandles();
         expect(currList).toHaveLength(3);

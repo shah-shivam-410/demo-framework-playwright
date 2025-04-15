@@ -2,15 +2,17 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: 'tests',
+  globalSetup: require.resolve('./global-setup'),
   testMatch: ['**/*.ts'], 
   globalTimeout: 36_00_000,
   timeout: 120_000,
   // expect: { timeout: 5_000 },
   fullyParallel: true,
   workers: 1,
-  reporter: [['html', { open: 'never' }]],
+  reporter: [['html', { open: 'never' }], ['list']],
   use: {
-    video: 'off'
+    video: 'off',
+    screenshot: 'only-on-failure'
   },
   projects: [ 
     {
