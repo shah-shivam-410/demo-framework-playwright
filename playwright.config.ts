@@ -4,13 +4,13 @@ export default defineConfig({
   testDir: 'tests',
   testMatch: ['**/*.ts'], 
   globalTimeout: 36_00_000,
-  // timeout: 120_000,
+  timeout: 120_000,
   // expect: { timeout: 5_000 },
   fullyParallel: true,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   reporter: [['html', { open: 'never' }]],
   use: {
-    video: 'on',
+    video: 'off'
   },
   projects: [ 
     {

@@ -3,7 +3,9 @@ import { Locator, Page } from "@playwright/test";
 
 export class HomePageLocators {
 
-    constructor(private page: Page) {}
+    constructor(private page: Page) {
+        this.page.setDefaultTimeout(10_000);
+    }
 
     myAccountLink: Locator = this.page.locator('#top-links').getByRole('link', { name: 'My Account' });
     loginLink: Locator = this.page.locator('#top-links').getByRole('link', { name: 'Login' });

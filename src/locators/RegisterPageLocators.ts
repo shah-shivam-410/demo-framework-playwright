@@ -3,7 +3,9 @@ import { Locator, Page } from "@playwright/test";
 
 export class RegisterPageLocators {
 
-    constructor(private page: Page) {}
+    constructor(private page: Page) {
+        this.page.setDefaultTimeout(10_000);
+    }
 
     headerText: Locator = this.page.locator('#content');
     firstName: Locator = this.page.getByRole('textbox', { name: '* First Name' });
