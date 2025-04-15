@@ -43,7 +43,8 @@ Visit https://playwright.dev/docs/intro for more information. ✨
 
 Demo websites:
 
-https://tutorialsninja.com/demo/
+https://ecommerce-playground.lambdatest.io/
 
+https://tutorialsninja.com/demo/
 
 https://omayo.blogspot.com/
