@@ -13,20 +13,20 @@ export class HomePage {
     }
 
     async navigateToRegister() { 
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", {waitUntil: 'load'});
+        await this.page.goto("https://ecommerce-playground.lambdatest.io/", {waitUntil: 'networkidle'});
         // await expect(this.homePageLocators.content).toHaveText("Featured")
-        await this.homePageLocators.myAccountLink.click();
+        await this.homePageLocators.myAccountLink.hover();
         await this.homePageLocators.registerLink.click();
     }
 
     async navigateToLogin() {
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", { waitUntil: 'load' });
-        await this.homePageLocators.myAccountLink.click();
+        await this.page.goto("https://ecommerce-playground.lambdatest.io/", { waitUntil: 'networkidle' });
+        await this.homePageLocators.myAccountLink.hover();
         await this.homePageLocators.loginLink.click();
     }
 
     async validateCurrencies() {
-        await this.page.goto("https://tutorialsninja.com/demo/index.php", { waitUntil: 'load' });
+        await this.page.goto("https://ecommerce-playground.lambdatest.io/", { waitUntil: 'networkidle' });
         await this.homePageLocators.currencyDropdown.click();
         const currList = await this.homePageLocators.currencyDropdownOptions.elementHandles();
         expect(currList).toHaveLength(3);
