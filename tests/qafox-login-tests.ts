@@ -1,7 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '@pages/HomePage';
+import { test } from '@fixtures/ExtendedTestFixture';
 import { getRandomString } from '@utils/RandomeStringGenerator';
-import { LoginPage } from '@pages/LoginPage';
 
 const usedEmail = process.env.EMAIL;
 const usedPassword = process.env.PASSWORD;
@@ -9,21 +7,18 @@ const newEmail = getRandomString("alphanumeric", 15) + "@" + getRandomString("al
 const newPassword = getRandomString("specialWithAlphaNumeric", 15);
 
 
-test('Login a user with incorrect credential', async ({ page }) => {
-    const homePage = new HomePage(page);
-    const loginPage = new LoginPage(page);
-
+test('Login a user with incorrect credential', async ({ page, screenShot, homePage, loginPage }) => {
     await homePage.navigateToLogin();
     await loginPage.performLogin(newEmail, newPassword);
+    await screenShot.capture(page);
     await loginPage.verifyInvalidLogin();
 });
 
-test('Login a user with correct credential', async ({ page }) => {
-    const homePage = new HomePage(page);
-    const loginPage = new LoginPage(page);
-
+test('Login a user with correct credential', async ({ page, screenShot, homePage, loginPage }) => {
     await homePage.navigateToLogin();
     await loginPage.performLogin(usedEmail, usedPassword);
     await loginPage.verifyValidLogin();
+    await screenShot.capture(page);
     await loginPage.performLogout();
+    await screenShot.capture(page);
 });
