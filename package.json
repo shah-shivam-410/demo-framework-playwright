@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project=Chrome"
+    "test": "npx playwright test --project=Chrome",
+    "allure:generate": "E:\\Softwares\\allure-2.30.0\\bin\\allure generate allure-results --clean -o allure-report",
+    "allure:open": "E:\\Softwares\\allure-2.30.0\\bin\\allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +13,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.0"
+    "@types/node": "^22.14.0",
+    "allure-playwright": "^3.2.1"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

@@ -9,7 +9,8 @@ export default defineConfig({
   // expect: { timeout: 5_000 },
   fullyParallel: true,
   workers: 1,
-  reporter: [['html', { open: 'never' }], ['line']],
+  // reporter: [['html', { open: 'never' }], ['line'], ['allure-playwright']],
+  reporter: [['allure-playwright']],
   use: {
     video: 'off',
     screenshot: 'only-on-failure'
