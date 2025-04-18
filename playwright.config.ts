@@ -1,27 +1,36 @@
 import { defineConfig, devices } from '@playwright/test';
+import os, { userInfo } from 'os';
 
 export default defineConfig({
   testDir: 'tests',
   globalSetup: require.resolve('./global-setup'),
-  testMatch: ['**/*.ts'], 
+  testMatch: ['**/*.ts'],
   globalTimeout: 36_00_000,
   timeout: 120_000,
   // expect: { timeout: 5_000 },
   fullyParallel: true,
   workers: 1,
   // reporter: [['html', { open: 'never' }], ['line'], ['allure-playwright']],
-  reporter: [['allure-playwright']],
+  reporter: [['allure-playwright', {
+    environmentInfo: {
+      os_platform: os.platform(),
+      os_release: os.release(),
+      os_version: os.version(),
+      node_version: process.version,
+      userInfo: os.userInfo().username
+    },
+  },], ['html', { open: 'never' }]],
   use: {
     video: 'off',
     screenshot: 'only-on-failure'
   },
-  projects: [ 
+  projects: [
     {
       name: 'Edge',
       use: {
         browserName: 'chromium',
         channel: 'msedge',
-        headless: false,
+        headless: true,
         viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
@@ -33,7 +42,7 @@ export default defineConfig({
       use: {
         browserName: 'chromium',
         channel: 'chrome',
-        headless: false,
+        headless: true,
         viewport: null,
         launchOptions: {
           args: ['--start-maximized'],

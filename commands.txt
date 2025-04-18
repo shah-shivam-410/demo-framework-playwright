@@ -1,3 +1,5 @@
+npm run test && npm run allure:generate && npm run allure:open
+
 Inside that directory, you can run several commands:
 
   npx playwright test
