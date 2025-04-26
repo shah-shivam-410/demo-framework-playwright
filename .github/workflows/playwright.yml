@@ -40,7 +40,7 @@ jobs:
       run: npm run allure:generate
 
     - name: Publish allure report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-pages-artifact@v2
       if: ${{ !cancelled() }}
       with:
         # name: index.html
