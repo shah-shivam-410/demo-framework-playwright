@@ -47,7 +47,7 @@ jobs:
         retention-days: 10
 
   deploy:
-    needs: build
+    needs: test
 
     permissions:
       pages: write
