@@ -40,12 +40,12 @@ jobs:
       run: npm run allure:generate
 
     - name: Publish allure report
-      uses: actions/upload-pages-artifact@v2
+      id: deployment
       if: ${{ !cancelled() }}
+      uses: actions/upload-pages-artifact@v3
       with:
-        # name: index.html
         path: allure-report
-        # retention-days: 10
+        retention-days: 10
 
   deploy:
     needs: test
@@ -68,8 +68,6 @@ jobs:
         id: deployment
         if: ${{ !cancelled() }}
         uses: actions/deploy-pages@v4
-        # with:
-        #   artifact_name: index.html
 
 
     
