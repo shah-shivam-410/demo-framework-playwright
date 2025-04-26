@@ -44,7 +44,7 @@ jobs:
       if: ${{ !cancelled() }}
       with:
         # name: index.html
-        path: allure-report/
+        path: allure-report
         retention-days: 10
 
   deploy:
