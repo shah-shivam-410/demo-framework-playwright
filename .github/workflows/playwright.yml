@@ -23,7 +23,7 @@ jobs:
     #   run: npx playwright install --with-deps
 
     - name: Pull latest changes
-      run: git pull
+      uses: actions/checkout@v4.2.2
 
     - name: Run tests
       run: npm test
