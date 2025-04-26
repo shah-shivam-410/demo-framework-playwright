@@ -1,3 +1,7 @@
+npm test
+npx allure generate --single-file --clean -o allure-report allure-results
+npx allure open allure-report
+
 npm run test && npm run allure:generate && npm run allure:open
 
 Inside that directory, you can run several commands:

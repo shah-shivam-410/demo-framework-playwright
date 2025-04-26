@@ -19,8 +19,13 @@ export default defineConfig({
       node_version: process.version,
       userInfo: os.userInfo().username
     },
-  },], ['html', { open: 'never' }]],
+  },],
+  // ['html', { open: 'never' }],
+  // ['dot'],
+  ['github']
+],
   use: {
+    // baseURL: process.env.API_BASE_URL, // not working, only reading till domain name.
     video: 'off',
     screenshot: 'only-on-failure'
   },

@@ -1,0 +1,337 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "rev": {
+            "type": "integer"
+        },
+        "fields": {
+            "type": "object",
+            "properties": {
+                "System.AreaPath": {
+                    "type": "string"
+                },
+                "System.TeamProject": {
+                    "type": "string"
+                },
+                "System.IterationPath": {
+                    "type": "string"
+                },
+                "System.WorkItemType": {
+                    "type": "string"
+                },
+                "System.State": {
+                    "type": "string"
+                },
+                "System.Reason": {
+                    "type": "string"
+                },
+                "System.CreatedDate": {
+                    "type": "string"
+                },
+                "System.CreatedBy": {
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "_links": {
+                            "type": "object",
+                            "properties": {
+                                "avatar": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "avatar"
+                            ]
+                        },
+                        "id": {
+                            "type": "string"
+                        },
+                        "uniqueName": {
+                            "type": "string"
+                        },
+                        "imageUrl": {
+                            "type": "string"
+                        },
+                        "descriptor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "displayName",
+                        "url",
+                        "_links",
+                        "id",
+                        "uniqueName",
+                        "imageUrl",
+                        "descriptor"
+                    ]
+                },
+                "System.ChangedDate": {
+                    "type": "string"
+                },
+                "System.ChangedBy": {
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "_links": {
+                            "type": "object",
+                            "properties": {
+                                "avatar": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "avatar"
+                            ]
+                        },
+                        "id": {
+                            "type": "string"
+                        },
+                        "uniqueName": {
+                            "type": "string"
+                        },
+                        "imageUrl": {
+                            "type": "string"
+                        },
+                        "descriptor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "displayName",
+                        "url",
+                        "_links",
+                        "id",
+                        "uniqueName",
+                        "imageUrl",
+                        "descriptor"
+                    ]
+                },
+                "System.CommentCount": {
+                    "type": "integer"
+                },
+                "System.Title": {
+                    "type": "string"
+                },
+                "Microsoft.VSTS.Common.StateChangeDate": {
+                    "type": "string"
+                },
+                "Microsoft.VSTS.Common.ActivatedDate": {
+                    "type": "string"
+                },
+                "Microsoft.VSTS.Common.ActivatedBy": {
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "_links": {
+                            "type": "object",
+                            "properties": {
+                                "avatar": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "avatar"
+                            ]
+                        },
+                        "id": {
+                            "type": "string"
+                        },
+                        "uniqueName": {
+                            "type": "string"
+                        },
+                        "imageUrl": {
+                            "type": "string"
+                        },
+                        "descriptor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "displayName",
+                        "url",
+                        "_links",
+                        "id",
+                        "uniqueName",
+                        "imageUrl",
+                        "descriptor"
+                    ]
+                },
+                "Microsoft.VSTS.Common.Priority": {
+                    "type": "integer"
+                },
+                "Custom.Application_Name": {
+                    "type": "string"
+                },
+                "Custom.NoofTestsBlocked": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "System.AreaPath",
+                "System.TeamProject",
+                "System.IterationPath",
+                "System.WorkItemType",
+                "System.State",
+                "System.Reason",
+                "System.CreatedDate",
+                "System.CreatedBy",
+                "System.ChangedDate",
+                "System.ChangedBy",
+                "System.CommentCount",
+                "System.Title",
+                "Microsoft.VSTS.Common.StateChangeDate",
+                "Microsoft.VSTS.Common.ActivatedDate",
+                "Microsoft.VSTS.Common.ActivatedBy",
+                "Microsoft.VSTS.Common.Priority",
+                "Custom.Application_Name",
+                "Custom.NoofTestsBlocked"
+            ]
+        },
+        "_links": {
+            "type": "object",
+            "properties": {
+                "self": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "workItemUpdates": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "workItemRevisions": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "workItemComments": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "html": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "workItemType": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                },
+                "fields": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "href"
+                    ]
+                }
+            },
+            "required": [
+                "self",
+                "workItemUpdates",
+                "workItemRevisions",
+                "workItemComments",
+                "html",
+                "workItemType",
+                "fields"
+            ],
+            "additionalProperties": false
+        },
+        "url": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "rev",
+        "fields",
+        "_links",
+        "url"
+    ],
+    "additionalProperties": false
+}
