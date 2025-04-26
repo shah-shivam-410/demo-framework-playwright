@@ -44,13 +44,14 @@ jobs:
       run: |
         $allureReportFolder = "${{ github.workspace }}\allure-report"
         $artifactPath = "${{ github.workspace }}\allure-report.zip"
-
         # Create a zip archive of the allure report
         Compress-Archive -Path $allureReportFolder -DestinationPath $artifactPath
+      shell: pwsh
 
 
     - name: Upload the generated report
       uses: actions/upload-artifact@v4
+      
       with:
         name: allure-report
         path: $artifactPath
