@@ -11,7 +11,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: self-hosted
-
+    default:
+      run:
+        shell: cmd
     steps:
 
     # - name: Install dependencies
