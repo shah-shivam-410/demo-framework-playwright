@@ -49,13 +49,12 @@ jobs:
         Compress-Archive -Path $allureReportFolder -DestinationPath $artifactPath
 
 
-        - name: Upload the generated report
-          uses: actions/upload-artifact@v4
-          with:
-            name: allure-report
-            path: $artifactPath
-        shell: pwsh
-
+    - name: Upload the generated report
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: $artifactPath
+        
   deploy:
     needs: test
 
