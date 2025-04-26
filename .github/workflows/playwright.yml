@@ -39,13 +39,22 @@ jobs:
       if: always()
       run: npm run allure:generate
 
-    - name: Publish allure report
-      id: deployment
-      if: ${{ !cancelled() }}
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: allure-report
-        retention-days: 10
+    - name: Publish allure report using PowerShell (manual upload)
+      if: always()
+      run: |
+        $allureReportFolder = "${{ github.workspace }}\allure-report"
+        $artifactPath = "${{ github.workspace }}\allure-report.zip"
+
+        # Create a zip archive of the allure report
+        Compress-Archive -Path $allureReportFolder -DestinationPath $artifactPath
+
+
+        - name: Upload the generated report
+          uses: actions/upload-artifact@v4
+          with:
+            name: allure-report
+            path: $artifactPath
+        shell: pwsh
 
   deploy:
     needs: test
@@ -68,6 +77,8 @@ jobs:
         id: deployment
         if: ${{ !cancelled() }}
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: allure-report.zip
 
 
     
