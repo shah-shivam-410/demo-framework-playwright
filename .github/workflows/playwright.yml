@@ -11,7 +11,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: self-hosted
-    default:
+    defaults:
       run:
         shell: cmd
     steps:
