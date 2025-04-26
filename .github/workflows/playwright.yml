@@ -40,10 +40,10 @@ jobs:
       run: npm run allure:generate
 
     - name: Publish allure report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v2
       if: ${{ !cancelled() }}
       with:
-        name: index.html
+        # name: index.html
         path: allure-report/
         retention-days: 10
 
