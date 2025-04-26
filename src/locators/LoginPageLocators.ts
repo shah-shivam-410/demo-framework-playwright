@@ -14,7 +14,7 @@ export class LoginPageLocators {
     editAccountInfoLink: Locator = this.page.getByRole('link', { name: 'Edit your account information' });
     logoutLink: Locator = this.page.getByRole('link', { name: 'Logout' });
     logoutDoneMessage: Locator = this.page.getByText('You have been logged off your account. It is now safe to leave the computer.');
-    noMatchMessage: Locator = this.page.getByText('Warning: No match for E-Mail Address and/or Password. Fail');
+    noMatchMessage: Locator = this.page.getByText('Warning: No match for E-Mail Address and/or Password.');
     forgotPasswordLink: Locator = this.page.getByRole('link', { name: 'Forgotten Password' });  
 
 }
