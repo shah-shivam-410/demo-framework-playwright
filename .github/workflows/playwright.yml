@@ -40,6 +40,7 @@ jobs:
       run: npm run allure:generate
 
     - name: Upload report as artifact
+      if: always()
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
@@ -47,7 +48,6 @@ jobs:
       
   deploy:
 
-    needs: test
     permissions:
       pages: write
       id-token: write
@@ -61,7 +61,7 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        if: ${{ !cancelled() }}
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v4
         # with:
