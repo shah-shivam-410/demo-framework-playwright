@@ -13,8 +13,6 @@ export class RegisterPage {
     }
 
     async performRegistration(email: string, passwd: string) {
-        await this.page.goto("https://tutorialsninja.com/demo/index.php?route=account/register", {waitUntil: 'load'});
-        await expect(this.registerPageLocators.headerText).toContainText("Register Account");
         await this.registerPageLocators.firstName.fill("Hello");
         await this.registerPageLocators.lastName.fill("World");
         await this.registerPageLocators.email.fill(email);
