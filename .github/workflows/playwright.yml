@@ -39,12 +39,20 @@ jobs:
       if: always()
       run: npm run allure:generate
 
-    - name: Upload report as artifact
+    - name: Create tarball of report
       if: always()
+      run: |
+        cd allure-report
+        tar -cvf github-pages.tar index.html
+
+    - name: Upload artifact
       id: deployment
-      uses: actions/upload-pages-artifact@v3.0.1
+      uses: actions/upload-artifact@v4
       with:
-        path: allure-report/
+        name: github-pages
+        path: allure-report/github-pages.tar
+        retention-days: 10
+        if-no-files-found: error
       
   deploy:
     if: ${{ always() }}
