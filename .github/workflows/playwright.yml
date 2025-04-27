@@ -16,7 +16,6 @@ jobs:
         shell: cmd
     steps:
 
-
     # - name: Install Playwright Browsers
     #   run: npx playwright install --with-deps
 
@@ -39,46 +38,37 @@ jobs:
       if: always()
       run: npm run allure:generate
 
-    - name: Publish allure report using PowerShell (manual upload)
+    - name: Create tarball of report
       if: always()
       run: |
-        $allureReportFolder = "${{ github.workspace }}\allure-report"
-        $artifactPath = "${{ github.workspace }}\allure-report.zip"
-        # Create a zip archive of the allure report
-        Compress-Archive -Path $allureReportFolder -DestinationPath $artifactPath
-      shell: pwsh
+        cd allure-report
+        tar -cvf github-pages.tar index.html
 
-
-    - name: Upload the generated report
+    - name: Upload artifact
+      id: deployment
       uses: actions/upload-artifact@v4
-      
       with:
-        name: allure-report
-        path: $artifactPath
-        
+        name: github-pages
+        path: allure-report/github-pages.tar
+        retention-days: 10
+        if-no-files-found: error
+      
   deploy:
-    needs: test
 
+    if: ${{ always() }}
+    needs: test
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: self-hosted
-    defaults:
-      run:
-        shell: cmd
-    
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        if: ${{ !cancelled() }}
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: allure-report.zip
 
 
     
