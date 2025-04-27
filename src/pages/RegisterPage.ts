@@ -4,8 +4,8 @@ import { expect, Page } from "@playwright/test";
 
 export class RegisterPage {
 
-    private page: Page;
-    private registerPageLocators: RegisterPageLocators;
+    private readonly page: Page;
+    private readonly registerPageLocators: RegisterPageLocators;
 
     constructor(page: Page) {
         this.page = page;

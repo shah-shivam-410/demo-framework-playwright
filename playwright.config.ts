@@ -21,12 +21,12 @@ export default defineConfig({
     },
   },],
   // ['html', { open: 'never' }],
-  // ['dot'],
+  ['list'],
   ['github']
 ],
   use: {
     // baseURL: process.env.API_BASE_URL, // not working, only reading till domain name.
-    video: 'off',
+    video: 'on',
     screenshot: 'only-on-failure'
   },
   projects: [

@@ -4,8 +4,8 @@ import { expect, Page } from "@playwright/test";
 
 export class LoginPage {
 
-    private page: Page;
-    private loginPageLocators: LoginPageLocators;
+    private readonly page: Page;
+    private readonly loginPageLocators: LoginPageLocators;
 
     constructor(page: Page) {
         this.page = page;
