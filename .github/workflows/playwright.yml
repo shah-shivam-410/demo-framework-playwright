@@ -53,6 +53,7 @@ jobs:
         tar -cvf github-pages.tar *
 
     - name: Upload artifact
+      if: always()
       id: deployment
       uses: actions/upload-artifact@v4
       with:
