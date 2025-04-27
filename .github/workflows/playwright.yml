@@ -47,6 +47,7 @@ jobs:
         path: allure-report/
       
   deploy:
+    if: ${{ always() }}
     needs: test
     permissions:
       pages: write
@@ -61,7 +62,6 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        if: always()
         id: deployment
         uses: actions/deploy-pages@v4
         # with:
