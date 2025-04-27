@@ -47,7 +47,7 @@ jobs:
         path: allure-report/
       
   deploy:
-
+    needs: test
     permissions:
       pages: write
       id-token: write
