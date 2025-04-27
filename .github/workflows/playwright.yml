@@ -9,28 +9,28 @@ on:
 jobs:
 
   test:
+
     timeout-minutes: 60
     runs-on: self-hosted
     defaults:
       run:
         shell: cmd
+
     steps:
-
-
     # - name: Install Playwright Browsers
     #   run: npx playwright install --with-deps
-
+    
     - name: Pull latest changes
       uses: actions/checkout@v4.2.2
       with:
-        ref: main
+        ref: github-pages-1
 
     - name: Copy actual dotenv file
       run: copy E:\Projects\js-projects\demo-framework-playwright\.env .env
       working-directory: ${{ github.workspace }}
 
-    - name: Install dependencies
-      run: npm ci
+    # - name: Install dependencies
+    #   run: npm ci
 
     - name: Run tests
       run: npm run test
@@ -39,46 +39,33 @@ jobs:
       if: always()
       run: npm run allure:generate
 
-    - name: Publish allure report using PowerShell (manual upload)
-      if: always()
-      run: |
-        $allureReportFolder = "${{ github.workspace }}\allure-report"
-        $artifactPath = "${{ github.workspace }}\allure-report.zip"
-        # Create a zip archive of the allure report
-        Compress-Archive -Path $allureReportFolder -DestinationPath $artifactPath
-      shell: pwsh
-
-
-    - name: Upload the generated report
-      uses: actions/upload-artifact@v4
-      
+    - name: Upload report as artifact
+      id: deployment
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: allure-report
-        path: $artifactPath
-        
+        path: allure-report/
+      
   deploy:
-    needs: test
 
+    needs: test
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: self-hosted
-    defaults:
-      run:
-        shell: cmd
-    
+    # defaults:
+    #   run:
+    #     shell: cmd
+
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         if: ${{ !cancelled() }}
+        id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: allure-report.zip
+        # with:
+        #   artifact_name: allure-report.zip
 
 
     
