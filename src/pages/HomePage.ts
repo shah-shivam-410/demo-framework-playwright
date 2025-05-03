@@ -30,7 +30,7 @@ export class HomePage {
         await this.homePageLocators.currencyDropdown.click();
         const currList = await this.homePageLocators.currencyDropdownOptions.elementHandles();
         expect(currList).toHaveLength(3);
-        const expectedCurrencies = ["€Euro", "£Pound Sterling", "$US Dollar"];
+        const expectedCurrencies = ["€Euro", "£Pound Sterling", "$ US Dollar"];
         for (let i = 0; i < currList.length; i++) {
             const textContent = await currList[i].textContent();
             expect(textContent.trim()).toBe(expectedCurrencies[i]);

@@ -4,9 +4,9 @@ import path from 'path';
 
 export class ScreenshotManager {
     private screenshotCount = 1;
-    private folderPath: string;
+    private readonly folderPath: string;
 
-    constructor(private testInfo: TestInfo) {
+    constructor(private readonly testInfo: TestInfo) {
         const now = new Date();
         const date = now.toISOString().split('T')[0]; // yyyy-mm-dd
         const time = now.toTimeString().split(' ')[0].replace(/:/g, '-'); // hh-mm-ss
